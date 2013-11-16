@@ -22,7 +22,7 @@ version="2.5">
   </servlet>
   <servlet-mapping>
     <servlet-name>jersey-services</servlet-name>
-    <url-pattern>/services/*</url-pattern>
+    <url-pattern>/api/*</url-pattern>
   </servlet-mapping>
 
 </web-app>

@@ -26,15 +26,14 @@ public class Main {
             webPort = "5000";
         }
 
-        Server server = new Server(Integer.valueOf(webPort));
         WebAppContext root = new WebAppContext();
-
         root.setContextPath("/");
         root.setDescriptor(webappDirLocation + "/WEB-INF/web.xml");
         root.setResourceBase(webappDirLocation);
         root.setParentLoaderPriority(true);
-        server.setHandler(root);
 
+        Server server = new Server(Integer.valueOf(webPort));
+        server.setHandler(root);
         server.start();
         server.join();
     }
