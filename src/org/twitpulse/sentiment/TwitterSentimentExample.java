@@ -3,6 +3,8 @@ package org.twitpulse.sentiment;
 import java.util.Date;
 
 import org.apache.commons.lang3.Validate;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import twitter4j.Status;
 
@@ -13,12 +15,12 @@ import twitter4j.Status;
  * 
  */
 public class TwitterSentimentExample {
+    private final String tweet;
     private final Integer sentiment;
     private final Long tweetId;
     private final Date creationDate;
     private final String queryTerm;
     private final String user;
-    private final String tweet;
 
     /**
      * Constructor
@@ -104,5 +106,28 @@ public class TwitterSentimentExample {
      */
     public String getTweet() {
         return tweet;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
+            return true;
+        }
+        if (obj.getClass() != getClass()) {
+            return false;
+        }
+        TwitterSentimentExample rhs = (TwitterSentimentExample) obj;
+        return new EqualsBuilder().appendSuper(super.equals(obj)).append(tweet, rhs.tweet)
+                .append(sentiment, rhs.sentiment).append(tweetId, rhs.tweetId).append(creationDate, rhs.creationDate)
+                .append(queryTerm, rhs.queryTerm).append(user, rhs.user).isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(619, 98121).append(tweet).append(sentiment).append(tweetId).append(creationDate)
+                .append(queryTerm).append(user).toHashCode();
     }
 }
