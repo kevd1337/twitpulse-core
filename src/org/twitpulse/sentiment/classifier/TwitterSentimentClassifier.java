@@ -22,20 +22,12 @@ public interface TwitterSentimentClassifier {
     public void train(List<TwitterSentimentExample> trainingExamples);
 
     /**
-     * Classifies single sentiment example (i.e. predicts what sentiment is appropriate)
-     * 
-     * @param example
-     *            sentiment example
-     * @return sentiment prediction
-     */
-    public TwitterSentimentPrediction classify(TwitterSentimentExample example);
-
-    /**
-     * Classifies a batch of sentiment examples
+     * Classifies a batch of sentiment examples (i.e. predicts what sentiment is appropriate)
      * 
      * @param example
      *            sentiment examples
+     * 
      * @return sentiment predictions
      */
-    public List<TwitterSentimentPrediction> batchClassify(List<TwitterSentimentExample> example);
+    public List<TwitterSentimentPrediction> classify(List<TwitterSentimentExample> example);
 }
