@@ -12,6 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.twitpulse.sentiment.TwitterSentimentExample;
 
@@ -66,9 +67,14 @@ public class Sentiment140CsvReader {
         while (iterator.hasNext()) {
             Sentiment140CsvRecord record = iterator.next();
 
-            examples.add(new TwitterSentimentExample(record.getTweetText(), record.getSentimentLabel(), record
-                    .getTweetId(), DATE_FORMAT.parse(record.getCreatedAt()), record.getQueryTerm(), record
-                    .getUsername()));
+            Integer sentimentLabel = null;
+            if (!StringUtils.isEmpty(record.getSentimentLabel()) && record.getSentimentLabel().length() == 1
+                    && Character.isDigit(record.getSentimentLabel().charAt(0))) {
+                sentimentLabel = Integer.parseInt(record.getSentimentLabel());
+            }
+
+            examples.add(new TwitterSentimentExample(record.getTweetText(), sentimentLabel, record.getTweetId(),
+                    DATE_FORMAT.parse(record.getCreatedAt()), record.getQueryTerm(), record.getUsername()));
         }
 
         return examples;
@@ -82,7 +88,7 @@ public class Sentiment140CsvReader {
      */
     public static class Sentiment140CsvRecord {
         @MapToColumn(column = 0)
-        private Integer sentimentLabel;
+        private String sentimentLabel;
         @MapToColumn(column = 1)
         private Long tweetId;
         @MapToColumn(column = 2)
@@ -97,7 +103,7 @@ public class Sentiment140CsvReader {
         /**
          * @return the sentimentLabel
          */
-        public Integer getSentimentLabel() {
+        public String getSentimentLabel() {
             return sentimentLabel;
         }
 
@@ -140,7 +146,7 @@ public class Sentiment140CsvReader {
          * @param sentimentLabel
          *            the sentimentLabel to set
          */
-        public void setSentimentLabel(Integer sentimentLabel) {
+        public void setSentimentLabel(String sentimentLabel) {
             this.sentimentLabel = sentimentLabel;
         }
 
