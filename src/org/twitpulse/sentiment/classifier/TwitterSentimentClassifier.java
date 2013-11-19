@@ -24,10 +24,10 @@ public interface TwitterSentimentClassifier {
     /**
      * Classifies a batch of sentiment examples (i.e. predicts what sentiment is appropriate)
      * 
-     * @param example
+     * @param examples
      *            sentiment examples
      * 
      * @return sentiment predictions
      */
-    public List<TwitterSentimentPrediction> classify(List<TwitterSentimentExample> example);
+    public List<TwitterSentimentPrediction> classify(List<TwitterSentimentExample> examples);
 }

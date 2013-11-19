@@ -19,34 +19,30 @@ public class TwitterSentimentPredictionTest {
         Integer positiveSentiment = 4;
         Integer negativeSentiment = 0;
         Integer neutralSentiment = 2;
-        Double anyNegativeConfidence = 0.5;
-        Double anyPositiveConfidence = 0.5;
+        Double anyConfidence = 0.5;
 
         TwitterSentimentPrediction actualPositivePrediction = new TwitterSentimentPrediction(anyTweetId, anyTweet,
-                positiveSentiment, anyNegativeConfidence, anyPositiveConfidence);
+                positiveSentiment, anyConfidence);
         assertEquals(anyTweetId, actualPositivePrediction.getTweetId());
         assertEquals(anyTweet, actualPositivePrediction.getTweet());
         assertEquals(positiveSentiment, actualPositivePrediction.getSentiment());
-        assertEquals(anyNegativeConfidence, actualPositivePrediction.getNegativeConfidence());
-        assertEquals(anyPositiveConfidence, actualPositivePrediction.getPositiveConfidence());
+        assertEquals(anyConfidence, actualPositivePrediction.getConfidence());
         assertEquals(TwitterSentimentPredictionType.POSITIVE, actualPositivePrediction.getPredictionType());
 
         TwitterSentimentPrediction actualNegativePrediction = new TwitterSentimentPrediction(anyTweetId, anyTweet,
-                negativeSentiment, anyNegativeConfidence, anyPositiveConfidence);
+                negativeSentiment, anyConfidence);
         assertEquals(anyTweetId, actualNegativePrediction.getTweetId());
         assertEquals(anyTweet, actualNegativePrediction.getTweet());
         assertEquals(negativeSentiment, actualNegativePrediction.getSentiment());
-        assertEquals(anyNegativeConfidence, actualNegativePrediction.getNegativeConfidence());
-        assertEquals(anyPositiveConfidence, actualNegativePrediction.getPositiveConfidence());
+        assertEquals(anyConfidence, actualNegativePrediction.getConfidence());
         assertEquals(TwitterSentimentPredictionType.NEGATIVE, actualNegativePrediction.getPredictionType());
 
         TwitterSentimentPrediction actualNeutralPrediction = new TwitterSentimentPrediction(anyTweetId, anyTweet,
-                neutralSentiment, anyNegativeConfidence, anyPositiveConfidence);
+                neutralSentiment, anyConfidence);
         assertEquals(anyTweetId, actualNeutralPrediction.getTweetId());
         assertEquals(anyTweet, actualNeutralPrediction.getTweet());
         assertEquals(neutralSentiment, actualNeutralPrediction.getSentiment());
-        assertEquals(anyNegativeConfidence, actualNeutralPrediction.getNegativeConfidence());
-        assertEquals(anyPositiveConfidence, actualNeutralPrediction.getPositiveConfidence());
+        assertEquals(anyConfidence, actualNeutralPrediction.getConfidence());
         assertEquals(TwitterSentimentPredictionType.NEUTRAL, actualNeutralPrediction.getPredictionType());
     }
 
@@ -54,10 +50,9 @@ public class TwitterSentimentPredictionTest {
     public void testConstructorThrowsExceptionWhenSentimentIsNull() {
         Long anyTweetId = 123l;
         String anyTweet = "whatever";
-        Double anyNegativeConfidence = 0.5;
-        Double anyPositiveConfidence = 0.5;
+        Double anyConfidence = 0.5;
 
-        new TwitterSentimentPrediction(anyTweetId, anyTweet, null, anyNegativeConfidence, anyPositiveConfidence);
+        new TwitterSentimentPrediction(anyTweetId, anyTweet, null, anyConfidence);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -65,11 +60,9 @@ public class TwitterSentimentPredictionTest {
         Long anyTweetId = 123l;
         String anyTweet = "whatever";
         Integer anySentimentValueBelowLowerRange = -1;
-        Double anyNegativeConfidence = 0.5;
-        Double anyPositiveConfidence = 0.5;
+        Double anyConfidence = 0.5;
 
-        new TwitterSentimentPrediction(anyTweetId, anyTweet, anySentimentValueBelowLowerRange, anyNegativeConfidence,
-                anyPositiveConfidence);
+        new TwitterSentimentPrediction(anyTweetId, anyTweet, anySentimentValueBelowLowerRange, anyConfidence);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -77,10 +70,7 @@ public class TwitterSentimentPredictionTest {
         Long anyTweetId = 123l;
         String anyTweet = "whatever";
         Integer anySentimentValueAboveUpperrRange = 5;
-        Double anyNegativeConfidence = 0.5;
-        Double anyPositiveConfidence = 0.5;
-
-        new TwitterSentimentPrediction(anyTweetId, anyTweet, anySentimentValueAboveUpperrRange, anyNegativeConfidence,
-                anyPositiveConfidence);
+        Double anyConfidence = 0.5;
+        new TwitterSentimentPrediction(anyTweetId, anyTweet, anySentimentValueAboveUpperrRange, anyConfidence);
     }
 }

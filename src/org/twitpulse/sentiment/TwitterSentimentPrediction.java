@@ -12,8 +12,10 @@ public class TwitterSentimentPrediction {
     private final Long tweetId;
     private final String tweet;
     private final Integer sentiment;
-    private final Double negativeConfidence;
-    private final Double positiveConfidence;
+    private final Double confidence;
+    Double anyNegativeConfidence = 0.5;
+    Double anyPositiveConfidence = 0.5;
+
     private final TwitterSentimentPredictionType predictionType;
 
     /**
@@ -26,13 +28,10 @@ public class TwitterSentimentPrediction {
      * @param sentiment
      *            final predicted sentiment of the given tweet, where 0 signifies negative sentiment, 2 signifies
      *            neutral, and 4 signifies positive sentiment.
-     * @param negativeConfidence
-     *            confidence from predictor that sentiment is negative (if available / applicable for predictor)
-     * @param positiveConfidence
-     *            confidence from predictor that sentiment is positive (if available / applicable for predictor)
-     */
-    public TwitterSentimentPrediction(Long tweetId, String tweet, Integer sentiment, Double negativeConfidence,
-            Double positiveConfidence) {
+     * @param confidence
+     *            confidence from predictor (if available / applicable for predictor)
+     **/
+    public TwitterSentimentPrediction(Long tweetId, String tweet, Integer sentiment, Double confidence) {
         Validate.notNull(sentiment, "Sentiment must be specified.");
         Validate.isTrue(sentiment >= 0 && sentiment <= 4,
                 "Invalid sentiment provided, value must be between 0 and 4 inclusive");
@@ -40,8 +39,7 @@ public class TwitterSentimentPrediction {
         this.tweetId = tweetId;
         this.tweet = tweet;
         this.sentiment = sentiment;
-        this.negativeConfidence = negativeConfidence;
-        this.positiveConfidence = positiveConfidence;
+        this.confidence = confidence;
 
         if (sentiment == 2) {
             this.predictionType = TwitterSentimentPredictionType.NEUTRAL;
@@ -74,17 +72,10 @@ public class TwitterSentimentPrediction {
     }
 
     /**
-     * @return the negativeConfidence
+     * @return the confidence
      */
-    public Double getNegativeConfidence() {
-        return negativeConfidence;
-    }
-
-    /**
-     * @return the positiveConfidence
-     */
-    public Double getPositiveConfidence() {
-        return positiveConfidence;
+    public Double getConfidence() {
+        return confidence;
     }
 
     /**
