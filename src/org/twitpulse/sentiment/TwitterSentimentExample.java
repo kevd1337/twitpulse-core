@@ -5,6 +5,7 @@ import java.util.Date;
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import twitter4j.Status;
 
@@ -120,14 +121,19 @@ public class TwitterSentimentExample {
             return false;
         }
         TwitterSentimentExample rhs = (TwitterSentimentExample) obj;
-        return new EqualsBuilder().appendSuper(super.equals(obj)).append(tweet, rhs.tweet)
-                .append(sentiment, rhs.sentiment).append(tweetId, rhs.tweetId).append(creationDate, rhs.creationDate)
-                .append(queryTerm, rhs.queryTerm).append(user, rhs.user).isEquals();
+        return new EqualsBuilder().append(tweet, rhs.tweet).append(sentiment, rhs.sentiment)
+                .append(tweetId, rhs.tweetId).append(creationDate, rhs.creationDate).append(queryTerm, rhs.queryTerm)
+                .append(user, rhs.user).isEquals();
     }
 
     @Override
     public int hashCode() {
         return new HashCodeBuilder(619, 98121).append(tweet).append(sentiment).append(tweetId).append(creationDate)
                 .append(queryTerm).append(user).toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
     }
 }
