@@ -19,7 +19,7 @@ http://help.sentiment140.com/for-students
 
 ## Command Line Interface
 
-Command line interfaces for training and invoking the predictors can be found in the `org.twitpulse.cli package`, the two programs are called:
+Command line interfaces for training and invoking the predictors can be found in the `org.twitpulse.cli` package, the two programs are called:
 * SentimentPredictorTrainerCLI
 * SentimentPredictorCLI
 
