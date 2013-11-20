@@ -42,7 +42,7 @@ To run it on command line:
 
 Or alternatively using foreman:
 
-   $ foreman start
+    $ foreman start
    
 Or alternatively you can setup an eclipse run configuration to make use of org.twitpulse.webapp.Main
 
