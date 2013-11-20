@@ -163,7 +163,11 @@ public class BaselineSentimentPredictor implements TwitterSentimentClassifier {
      *             pipeList.add(new PrintInputAndTarget());
      */
     public void loadModel(String modelFilePath) throws FileNotFoundException, ClassNotFoundException, IOException {
-        synchronized (underlyingClassifier) {
+        if (underlyingClassifier != null) {
+            synchronized (underlyingClassifier) {
+                this.underlyingClassifier = loadClassifier(modelFilePath);
+            }
+        } else {
             this.underlyingClassifier = loadClassifier(modelFilePath);
         }
     }

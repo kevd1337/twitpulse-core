@@ -25,6 +25,10 @@ A usage note for the programs will be printed if invoked without arguments. Curr
     $ java -cp target/classes:target/dependency/* org.twitpulse.cli.SentimentPredictorTrainerCLI
     $ java -cp target/classes:target/dependency/* org.twitpulse.cli.SentimentPredictorCLI
     
+A baseline trained model file can be found in `res/baseline.model`
+
+Basic evaluation metrics about the trained model can be found in `res/baseline.model.training-evaluation`
+
 ## Running the web application locally
 
 UNDERCONSTRUCTION - simple webapp / JSON APIs for invoking the twitter sentiment predictor 
