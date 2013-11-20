@@ -22,8 +22,8 @@ Command line interfaces for training and invoking the predictors can be found in
 
 A usage note for the programs will be printed if invoked without arguments. Currently these can be run in an IDE (like eclipse), or on the command line like:
     
-    java -cp target/classes:target/dependency/* org.twitpulse.cli.SentimentPredictorTrainerCLI
-    java -cp target/classes:target/dependency/* org.twitpulse.cli.SentimentPredictorCLI
+    $ java -cp target/classes:target/dependency/* org.twitpulse.cli.SentimentPredictorTrainerCLI
+    $ java -cp target/classes:target/dependency/* org.twitpulse.cli.SentimentPredictorCLI
     
 ## Running the web application locally
 
@@ -31,7 +31,7 @@ UNDERCONSTRUCTION - simple webapp / JSON APIs for invoking the twitter sentiment
 
 First build with:
 
-    $mvn clean install
+    $ mvn clean install
     
 Or alternatively import project into eclipse, make sure it's a maven java project.
 
