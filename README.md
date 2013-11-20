@@ -9,18 +9,21 @@ Demo video and details on TwitPulse can be found @ [ShowHacks](http://www.showha
 
 ## Twitter Sentiment Training Data
 
-Some training data is omitted from repo to save space (and probably due to licensing as well). 
+The primary training data set is omitted from repo to save space. 
 
 For the tweet sentiment classifier, see this training data:
 http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip
 
+Information on the data set can be found here:
+http://help.sentiment140.com/for-students
+
 ## Command Line Interface
 
-Command line interfaces for training and invoking the predictors can be found in the org.twitpulse.cli package, the two programs are called:
+Command line interfaces for training and invoking the predictors can be found in the `org.twitpulse.cli package`, the two programs are called:
 * SentimentPredictorTrainerCLI
 * SentimentPredictorCLI
 
-A usage note for the programs will be printed if invoked without arguments. Currently these can be run in an IDE (like eclipse), or on the command line like:
+A usage note for the programs will be printed if invoked without arguments. Currently these can be run in eclipse using a java application run configuration, or on the command line like this:
     
     $ java -cp target/classes:target/dependency/* org.twitpulse.cli.SentimentPredictorTrainerCLI
     $ java -cp target/classes:target/dependency/* org.twitpulse.cli.SentimentPredictorCLI
@@ -48,6 +51,6 @@ Or alternatively using foreman:
 
     $ foreman start
    
-Or alternatively you can setup an eclipse run configuration to make use of org.twitpulse.webapp.Main
+Or alternatively you can setup an eclipse java application run configuration to make use of `org.twitpulse.webapp.Main`
 
 Your app should now be running on [localhost:5000](http://localhost:5000/).
