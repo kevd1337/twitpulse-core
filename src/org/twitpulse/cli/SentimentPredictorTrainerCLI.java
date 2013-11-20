@@ -14,7 +14,7 @@ import org.twitpulse.sentiment.corpus.Sentiment140CsvReader;
  * @author kevd1337
  * 
  */
-public class BaselineClassifierTrainer {
+public class SentimentPredictorTrainerCLI {
 
     /**
      * Command line entry point
@@ -28,7 +28,7 @@ public class BaselineClassifierTrainer {
     public static void main(String args[]) throws ParseException, IOException {
         if (args.length != 2) {
             System.out
-                    .println("Usage: BaselineClassifierTrainer <sentiment-140-training-data-file> <target-model-file>");
+                    .println("Usage: SentimentPredictorTrainerCLI <sentiment-140-training-data-file> <target-model-file>");
             System.exit(0);
         }
 
