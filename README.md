@@ -47,6 +47,7 @@ The following environment variables are used by the twitpulse-core's web api:
 
 See this link for examples of how to use environment variables with heroku: https://devcenter.heroku.com/articles/config-vars#example ; alternatively while developing locally you can just export these variables (assuming you're in a *nix environment)
 
+
 Now build twitpulse-core with:
 
     $ mvn clean install
