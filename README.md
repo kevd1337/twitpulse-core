@@ -34,7 +34,7 @@ Basic evaluation metrics about the trained model can be found in `res/baseline.m
 
 ## Running the web application locally
 
-UNDERCONSTRUCTION - simple webapp / JSON APIs for invoking the twitter sentiment predictor 
+For convenience a simple webapp / JSON APIs for invoking the twitter sentiment predictor is provided, the following outlines how to run them.
 
 First build with:
 
@@ -52,5 +52,16 @@ Or alternatively using foreman:
     $ foreman start
    
 Or alternatively you can setup an eclipse java application run configuration to make use of `org.twitpulse.webapp.Main`
+
+See this link for examples of how to use environment variables with heroku: https://devcenter.heroku.com/articles/config-vars#example ; alternatively while developing locally you can just export these variables (assuming you're in a *nix environment)
+
+The following environment variables are used by the Twitpulse web service:
+
+- **TWITPULSE\_CONFIDENCE\_THRESHOLD** - optional; minium confidence threshold required to have a positive or negative prediction (number between 0 and 1)
+- **TWITPULSE\_MODE** - optional; path to classifier model file to be used
+- **TWITTER\_CONSUMER\_KEY** -  Consumer key from Twitter; visit https://dev.twitter.com/ for details / to register for keys
+- **TWITTER\_CONSUMER\_SECRET** - Consumer secret from Twitter
+- **TWITTER\_ACCESS\_TOKEN** - Access token from Twitter
+- **TWITTER\_ACCESS\_TOKEN\_KEY** - Access token key from Twitter
 
 Your app should now be running on [localhost:5000](http://localhost:5000/).
