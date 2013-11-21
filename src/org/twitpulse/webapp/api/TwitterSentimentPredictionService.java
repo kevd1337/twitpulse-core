@@ -40,15 +40,18 @@ public class TwitterSentimentPredictionService {
     private static final TwitterSentimentClassifier initializeClassifier() {
         try {
             Double confidenceThreshold = null;
-            if (System.getenv("CONFIDENCE_THRESHOLD") != null) {
-                confidenceThreshold = Double.parseDouble(System.getenv("CONFIDENCE_THRESHOLD"));
+            if (System.getenv("TWITPULSE_CONFIDENCE_THRESHOLD") != null) {
+                confidenceThreshold = Double.parseDouble(System.getenv("TWITPULSE_CONFIDENCE_THRESHOLD"));
             }
             BaselineSentimentPredictor classifier = new BaselineSentimentPredictor(confidenceThreshold);
-            classifier.loadModel("res/baseline.model");
-
+            if (System.getenv("TWITPULSE_MODEL") != null) {
+                classifier.loadModel(System.getenv("TWITPULSE_MODEL"));
+            } else {
+                classifier.loadModel("res/baseline.model");
+            }
             return classifier;
         } catch (Exception e) {
-            throw new IllegalStateException("Unable to setup sentiment classifier, " + e.getMessage(), e);
+            throw new IllegalStateException("Unable to setup sentiment classifier,  " + e.getMessage(), e);
         }
     }
 
