@@ -34,7 +34,7 @@ Basic evaluation metrics about the trained model can be found in `res/baseline.m
 
 ## Running the web application locally
 
-For convenience a simple webapp / JSON APIs for invoking the twitter sentiment predictor is provided, the following outlines how to run them.
+For convenience a simple web APIs for invoking the twitter sentiment predictor is provided, the following outlines how to run them.
 
 The following environment variables are used by the twitpulse-core's web api:
 
