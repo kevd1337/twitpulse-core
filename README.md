@@ -11,11 +11,9 @@ Demo video and details on TwitPulse can be found @ [ShowHacks](http://www.showha
 
 The primary training data set is omitted from repo to save space. 
 
-For the tweet sentiment classifier, see this training data:
-http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip
+For the tweet sentiment classifier, see this [training data](http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip)
 
-Information on the data set can be found here:
-http://help.sentiment140.com/for-students
+Information on the Sentiment140 data set can be found [here](http://help.sentiment140.com/for-students) 
 
 ## Command Line Interface
 
@@ -40,12 +38,12 @@ The following environment variables are used by the twitpulse-core's web api:
 
 - **TWITPULSE\_CONFIDENCE\_THRESHOLD** - optional; minium confidence threshold required to have a positive or negative prediction (number between 0 and 1)
 - **TWITPULSE\_MODE** - optional; path to classifier model file to be used
-- **TWITTER\_CONSUMER\_KEY** -  Consumer key from Twitter; visit https://dev.twitter.com/ for details / to register for keys
+- **TWITTER\_CONSUMER\_KEY** -  Consumer key from Twitter; visit the [Twitter Developers](https://dev.twitter.com/) page to register for keys
 - **TWITTER\_CONSUMER\_SECRET** - Consumer secret from Twitter
 - **TWITTER\_ACCESS\_TOKEN** - Access token from Twitter
 - **TWITTER\_ACCESS\_TOKEN\_KEY** - Access token key from Twitter
 
-See this link for examples of how to use environment variables with heroku: https://devcenter.heroku.com/articles/config-vars#example ; alternatively while developing locally you can just export these variables (assuming you're in a *nix environment)
+See this [link](https://devcenter.heroku.com/articles/config-vars#example) for examples of how to use environment variables with heroku, alternatively while developing locally you can just export these variables (assuming you're in a *nix environment)
 
 
 Now build twitpulse-core with:
