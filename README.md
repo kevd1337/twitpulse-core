@@ -5,6 +5,8 @@ TwitPulse's twitter sentiment analysis core library code. Also includes a webapp
 
 twitpulse-core is part of the larger TwitPulse webapp created at the TechCrunch Disrupt SF 2013 Hackathon that summarizes conversations and tracks the evolution of sentiment over time around topics like sports or politics. Machine learning and social data are leveraged as opposed to using traditional surveys and polls.
 
+![Screenshot](https://raw.githubusercontent.com/kevd1337/twitpulse-core/master/screenshot.png)
+
 Demo video and details on TwitPulse can be found @ [ShowHacks](http://www.showhacks.com/p/23TplPdS)
 
 ## Twitter Sentiment Training Data
