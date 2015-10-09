@@ -7,7 +7,7 @@ twitpulse-core is part of the larger TwitPulse webapp created at the TechCrunch 
 
 ![Screenshot](https://raw.githubusercontent.com/kevd1337/twitpulse-core/master/screenshot.png)
 
-Demo video and details on TwitPulse can be found @ [ShowHacks](http://www.showhacks.com/p/23TplPdS)
+Demo video can be found @ [YouTube](https://www.youtube.com/watch?v=JkCtSET5LW8)
 
 ## Twitter Sentiment Training Data
 
